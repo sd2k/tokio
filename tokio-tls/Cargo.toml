@@ -25,7 +25,7 @@ categories = ["asynchronous", "network-programming"]
 travis-ci = { repository = "tokio-rs/tokio-tls" }
 
 [dependencies]
-native-tls = "0.2"
+native-tls = { git = "https://github.com/sd2k/rust-native-tls" }
 tokio = { version = "0.2.0", path = "../tokio" }
 
 [dev-dependencies]

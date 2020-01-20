@@ -177,6 +177,12 @@ impl<S> TlsStream<S> {
     {
         &mut self.0.get_mut().inner
     }
+
+    #[cfg(all(not(target_os = "macos"), not(windows), not(target_os = "ios")))]
+    /// Return a reference to the SSL object used for the stream.
+    pub fn ssl(&self) -> &native_tls::openssl::ssl::SslRef {
+        self.0.ssl()
+    }
 }
 
 impl<S> AsyncRead for TlsStream<S>
